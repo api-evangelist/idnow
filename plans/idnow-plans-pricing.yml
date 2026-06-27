@@ -1,0 +1,54 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: IDnow
+providerId: idnow
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Identity Verification
+- KYC
+- Identity Proofing
+- AML
+- eSign
+- Plans
+description: >-
+  IDnow does not publish public, self-service pricing for its identity
+  verification products. Access to AutoIdent, VideoIdent, eID and eSign is
+  sales-led: pricing is quoted per contract based on product mix, verification
+  method, expected volume, geography and compliance requirements. Prospective
+  customers request a demo or quote through IDnow sales. No per-transaction
+  rates are published, so the values below are not reconciled.
+notes: >-
+  Pricing is contract-based and gated behind IDnow sales. Confirm the current
+  commercial terms directly with IDnow during reconciliation.
+sources:
+- https://www.idnow.io/
+- https://www.idnow.io/developers/
+plans:
+- id: idnow-contact-sales
+  name: Contact Sales
+  type: enterprise
+  description: >-
+    Custom commercial agreement covering AutoIdent, VideoIdent, eID and eSign,
+    priced per contract by product, verification method, volume, and region.
+  entries:
+  - label: Identity Verification Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: AutoIdent
+  - name: VideoIdent
+  - name: eID
+  - name: eSign
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

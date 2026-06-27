@@ -1,0 +1,50 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: IDnow
+providerId: idnow
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Identity Verification
+- KYC
+- Identity Proofing
+- AML
+- eSign
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  IDnow does not publish specific public rate-limit values for its gateway
+  API. Usage is governed by the company's contract and configured environment
+  rather than a published per-account quota. Verification throughput on the
+  VideoIdent product is additionally bounded by the availability of human Ident
+  Specialists. Specific per-endpoint limits are not reconciled in this artifact.
+notes: >-
+  Confirm any applicable request limits, concurrency, and backoff guidance with
+  IDnow during onboarding and reconciliation; values are not published.
+sources:
+- https://docs-videoident.idnow.io/
+- https://docs-autoident.idnow.io/
+responseCodes:
+  throttled: 429
+limits:
+- name: Gateway Requests
+  scope: company
+  metric: requests
+  limit: see provider documentation
+  notes: No public per-account request rate is published; governed by contract.
+- name: VideoIdent Throughput
+  scope: company
+  metric: identifications
+  limit: see provider documentation
+  notes: Bounded by Ident Specialist availability and contracted capacity.
+policies:
+- name: Contract-Governed Limits
+  description: Applicable limits are defined by the company agreement and environment, not a published quota.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

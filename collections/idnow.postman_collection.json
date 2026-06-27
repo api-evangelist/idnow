@@ -1,0 +1,187 @@
+{
+  "info": {
+    "name": "IDnow Gateway API",
+    "description": "IDnow identity-verification gateway API: authenticate a company, create and drive identifications (AutoIdent / VideoIdent), retrieve results, and download documents. Set the baseUrl variable to https://gateway.idnow.de/api/v1 (or the test gateway) and provide your company identifier and login token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{company}}/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{company}}",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiKey\": \"{{apiKey}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Authenticate the company with its API key and receive a JWT (authToken) to use as the X-API-LOGIN-TOKEN header."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Identifications",
+      "item": [
+        {
+          "name": "Create Identification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-LOGIN-TOKEN",
+                "value": "{{loginToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{company}}/identifications/{{transactionId}}/create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{company}}",
+                "identifications",
+                "{{transactionId}}",
+                "create"
+              ]
+            },
+            "description": "Create an identification resource for the given transaction (AutoIdent or VideoIdent)."
+          }
+        },
+        {
+          "name": "Start Identification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-LOGIN-TOKEN",
+                "value": "{{loginToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{company}}/identifications/{{transactionId}}/start",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{company}}",
+                "identifications",
+                "{{transactionId}}",
+                "start"
+              ]
+            },
+            "description": "Start a previously created identification."
+          }
+        },
+        {
+          "name": "Request Video Chat",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-LOGIN-TOKEN",
+                "value": "{{loginToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{company}}/identifications/{{transactionId}}/requestVideoChat",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{company}}",
+                "identifications",
+                "{{transactionId}}",
+                "requestVideoChat"
+              ]
+            },
+            "description": "Place the identification into the VideoIdent queue for an Ident Specialist."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Results",
+      "item": [
+        {
+          "name": "Get Identification Result",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-LOGIN-TOKEN",
+                "value": "{{loginToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{company}}/identifications/{{transactionId}}?include_documents=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{company}}",
+                "identifications",
+                "{{transactionId}}"
+              ],
+              "query": [
+                {
+                  "key": "include_documents",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "Retrieve the identification result as JSON; set include_documents=true to include captured ID-document and face images."
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://gateway.idnow.de/api/v1"
+    },
+    {
+      "key": "company",
+      "value": ""
+    },
+    {
+      "key": "apiKey",
+      "value": ""
+    },
+    {
+      "key": "loginToken",
+      "value": ""
+    },
+    {
+      "key": "transactionId",
+      "value": ""
+    }
+  ]
+}

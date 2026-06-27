@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IDnow Gateway API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-LOGIN-TOKEN",
+      "value": "{{loginToken}}",
+      "in": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.idnow.de/api/v1/{company}/login",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"apiKey\": \"{{apiKey}}\"\n}"
+            }
+          },
+          "docs": "Authenticate the company with its API key and receive a JWT (authToken) used as the X-API-LOGIN-TOKEN header."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Identifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Identification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.idnow.de/api/v1/{company}/identifications/{transactionId}/create"
+          },
+          "docs": "Create an identification resource for the given transaction (AutoIdent or VideoIdent)."
+        },
+        {
+          "info": {
+            "name": "Start Identification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.idnow.de/api/v1/{company}/identifications/{transactionId}/start"
+          },
+          "docs": "Start a previously created identification."
+        },
+        {
+          "info": {
+            "name": "Request Video Chat",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.idnow.de/api/v1/{company}/identifications/{transactionId}/requestVideoChat"
+          },
+          "docs": "Place the identification into the VideoIdent queue for an Ident Specialist."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Results",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Identification Result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.idnow.de/api/v1/{company}/identifications/{transactionId}?include_documents=true"
+          },
+          "docs": "Retrieve the identification result as JSON; set include_documents=true to include captured ID-document and face images."
+        }
+      ]
+    }
+  ]
+}

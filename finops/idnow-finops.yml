@@ -1,0 +1,89 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: IDnow
+providerId: idnow
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Identity Verification
+- KYC
+- Identity Proofing
+- AML
+- eSign
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of IDnow spend. IDnow bills identity-verification usage under a
+  sales-led contract rather than published self-service rates. Costs are
+  typically driven by completed identifications per product (AutoIdent,
+  VideoIdent), with eID and eSign as additional contracted services. Because
+  no public per-transaction pricing is available, the cost figures here are
+  not reconciled and should be confirmed with IDnow.
+notes: >-
+  Per-identification and per-signature rates are contract-specific and not
+  published; verify against the IDnow agreement during reconciliation.
+sources:
+- https://www.idnow.io/
+- https://www.idnow.io/developers/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: IDnow
+serviceCategory: Identity and Compliance
+billingModel:
+  pricingCategory: Contract-Based
+  billingFrequency: Monthly
+  billingCurrency: EUR
+  chargeCategories:
+  - Usage
+  - Purchase
+focusColumns:
+  ServiceName: IDnow Identity Verification
+  ServiceCategory: Identity and Compliance
+  ProviderName: IDnow
+  PublisherName: IDnow
+  InvoiceIssuerName: IDnow
+  BillingCurrency: EUR
+  ChargeCategory: Usage
+  PricingCategory: Contract-Based
+meters:
+- name: autoident_identifications
+  description: Completed automated (AutoIdent) identifications, billed per identification per contract.
+  unit: identifications
+  aggregation: sum
+  dimensions:
+  - company
+  - product
+- name: videoident_identifications
+  description: Completed human-assisted (VideoIdent) identifications, billed per identification per contract.
+  unit: identifications
+  aggregation: sum
+  dimensions:
+  - company
+  - product
+- name: esign_signatures
+  description: Electronic signatures (AES/QES) issued via eSign, billed per signature per contract.
+  unit: signatures
+  aggregation: sum
+  dimensions:
+  - company
+  - product
+principles:
+- name: Visibility
+  description: Reconcile completed identifications per product against IDnow invoices and contract terms.
+- name: Allocation
+  description: Tag transactions per workload/team to map identification spend to internal cost centers.
+- name: Optimization
+  description: Route eligible flows to AutoIdent where automated verification is sufficient to reduce per-ident cost vs. human VideoIdent.
+- name: Accountability
+  description: Assign owners per onboarding flow; review identification volume and spend monthly against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

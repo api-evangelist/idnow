@@ -1,0 +1,79 @@
+aid: idnow
+name: IDnow
+review:
+  question: Does IDnow expose a documented public REST API with self-service access?
+  answer: partial
+  date: '2026-06-25'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    IDnow operates a real, documented RESTful gateway API for identity
+    verification. Public developer documentation is published for both the
+    AutoIdent (automated) and VideoIdent (human-assisted) products, alongside
+    eID and eSign. The API is request/JSON based and authenticated with a
+    company login token: a company authenticates with its API key against the
+    gateway to receive a JWT, which is then sent as the X-API-LOGIN-TOKEN
+    header on subsequent calls. Identifications are created and driven per
+    transaction (create, start, requestVideoChat), results are retrieved as
+    JSON with optional document/face images, and status-change webhooks are
+    delivered to a subscriber URL (GET by default, with a [statusCode]
+    placeholder). However, access is NOT self-service: credentials, the
+    company identifier and an environment are provisioned through IDnow sales
+    onboarding, and there is no public pricing. Documentation is rendered
+    client-side and partially gated, so the OpenAPI here captures the
+    well-documented gateway endpoints rather than every product method.
+  transports:
+  - protocol: REST
+    scheme: https
+    baseURL: https://gateway.idnow.de/api/v1
+    documented: true
+  - protocol: REST
+    scheme: https
+    baseURL: https://gateway.test.idnow.de/api/v1
+    documented: true
+    note: Test gateway for integration and sandbox identifications.
+  - protocol: Webhook
+    scheme: https
+    documented: true
+    note: Status-change notifications delivered to a subscriber URL, by GET by default, supporting a [statusCode] placeholder.
+  endpointsConfirmedRest:
+  - POST https://gateway.idnow.de/api/v1/{company}/login
+  - POST https://gateway.idnow.de/api/v1/{company}/identifications/{transactionId}/create
+  - POST https://gateway.idnow.de/api/v1/{company}/identifications/{transactionId}/start
+  - POST https://gateway.idnow.de/api/v1/{company}/identifications/{transactionId}/requestVideoChat
+  - GET  https://gateway.idnow.de/api/v1/{company}/identifications/{transactionId}
+  authentication:
+    scheme: company login token
+    note: POST API key to the login endpoint to receive a JWT; send it as the X-API-LOGIN-TOKEN header on subsequent requests.
+  availability:
+    publicDocs: true
+    selfServiceSignup: false
+    publicPricing: false
+    note: Onboarding, company identifier, API key and environment are sales-led / partner-gated.
+sources:
+- url: https://www.idnow.io/developers/
+  type: Documentation
+  note: Developer hub listing AutoIdent, VideoIdent, eID and eSign documentation and SDKs.
+- url: https://docs-videoident.idnow.io/
+  type: Documentation
+  note: VideoIdent, eSign and eID API documentation (client-rendered).
+- url: https://docs-autoident.idnow.io/
+  type: Documentation
+  note: AutoIdent API documentation (client-rendered).
+- url: https://github.com/idnow
+  type: SourceCode
+  note: Official IDnow GitHub organization with iOS/Android VideoIdent SDK and sample apps.
+- url: https://docs.solarisgroup.com/guides/kyc/autoident
+  type: Documentation
+  note: Third-party (Solaris) integration guide confirming AutoIdent identification create/retrieve flow and webhook events (IDENTIFICATION, PERSON_CHANGED).
+actions:
+  apisYmlUpdated: true
+  reason: |
+    Captured the real gateway REST surface and login-token auth in
+    openapi/idnow-openapi.yml and documented five APIs (Identifications,
+    Results & Retrieval, AutoIdent, VideoIdent, Webhooks). Pricing and rate
+    limits left reconciled:false because IDnow publishes neither; access is
+    sales-led.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
