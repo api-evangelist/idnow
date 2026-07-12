@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/idnow-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: LoginToken
+  type: apiKey
+  in: header
+  parameter: X-API-LOGIN-TOKEN
+  description: JWT returned by the login endpoint, sent on every authenticated request.
+  sources:
+  - openapi/idnow-openapi.yml

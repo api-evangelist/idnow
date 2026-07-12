@@ -120,6 +120,10 @@ apis:
     changes state. Webhooks are delivered by GET by default and support a [statusCode]
     placeholder in the configured callback URL.
 common:
+- type: DomainSecurity
+  url: security/idnow-domain-security.yml
+- type: Authentication
+  url: authentication/idnow-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/idnow
 - type: LinkedIn
@@ -134,6 +138,8 @@ common:
   url: rate-limits/idnow-rate-limits.yml
 - type: FinOps
   url: finops/idnow-finops.yml
+- url: https://idnow.io/feed/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
