@@ -120,6 +120,8 @@ apis:
     changes state. Webhooks are delivered by GET by default and support a [statusCode]
     placeholder in the configured callback URL.
 common:
+- type: AgenticAccess
+  url: agentic-access/idnow-agentic-access.yml
 - type: DomainSecurity
   url: security/idnow-domain-security.yml
 - type: Authentication
