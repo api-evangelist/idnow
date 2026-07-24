@@ -1,0 +1,47 @@
+openapi: 3.0.1
+info:
+  title: IDnow Gateway Authentication VideoIdent API
+  description: Specification of the IDnow identity-verification gateway API. Companies authenticate against the gateway, create and drive identification orders (AutoIdent automated and VideoIdent human-assisted), retrieve results and captured documents, and subscribe to status-change webhooks. Endpoints and payloads documented here are derived from IDnow's public developer documentation; consult the IDnow Developer Hub for the authoritative, complete reference and request/response schemas.
+  termsOfService: https://www.idnow.io/terms-conditions/
+  contact:
+    name: IDnow Support
+    url: https://www.idnow.io/developers/
+  version: '1.0'
+servers:
+- url: https://gateway.idnow.de/api/v1
+  description: Production gateway
+- url: https://gateway.test.idnow.de/api/v1
+  description: Test gateway
+security:
+- LoginToken: []
+tags:
+- name: VideoIdent
+paths:
+  /{company}/identifications/{transactionId}/requestVideoChat:
+    post:
+      operationId: requestVideoChat
+      tags:
+      - VideoIdent
+      summary: Request the video-chat step for an identification.
+      description: Places the identification into the VideoIdent queue so an IDnow Ident Specialist can guide the user through video verification.
+      parameters:
+      - name: company
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: transactionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Video chat requested.
+components:
+  securitySchemes:
+    LoginToken:
+      type: apiKey
+      in: header
+      name: X-API-LOGIN-TOKEN
+      description: JWT returned by the login endpoint, sent on every authenticated request.

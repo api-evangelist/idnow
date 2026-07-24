@@ -1,0 +1,68 @@
+openapi: 3.0.1
+info:
+  title: IDnow Gateway Authentication Identifications API
+  description: Specification of the IDnow identity-verification gateway API. Companies authenticate against the gateway, create and drive identification orders (AutoIdent automated and VideoIdent human-assisted), retrieve results and captured documents, and subscribe to status-change webhooks. Endpoints and payloads documented here are derived from IDnow's public developer documentation; consult the IDnow Developer Hub for the authoritative, complete reference and request/response schemas.
+  termsOfService: https://www.idnow.io/terms-conditions/
+  contact:
+    name: IDnow Support
+    url: https://www.idnow.io/developers/
+  version: '1.0'
+servers:
+- url: https://gateway.idnow.de/api/v1
+  description: Production gateway
+- url: https://gateway.test.idnow.de/api/v1
+  description: Test gateway
+security:
+- LoginToken: []
+tags:
+- name: Identifications
+paths:
+  /{company}/identifications/{transactionId}/create:
+    post:
+      operationId: createIdentification
+      tags:
+      - Identifications
+      summary: Create an identification for a transaction.
+      description: Creates an identification resource for the given transaction within the company. Used for both AutoIdent and VideoIdent flows depending on the configured product.
+      parameters:
+      - name: company
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: transactionId
+        in: path
+        required: true
+        description: Caller-supplied unique transaction reference.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Identification created.
+  /{company}/identifications/{transactionId}/start:
+    post:
+      operationId: startIdentification
+      tags:
+      - Identifications
+      summary: Start a previously created identification.
+      parameters:
+      - name: company
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: transactionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Identification started.
+components:
+  securitySchemes:
+    LoginToken:
+      type: apiKey
+      in: header
+      name: X-API-LOGIN-TOKEN
+      description: JWT returned by the login endpoint, sent on every authenticated request.

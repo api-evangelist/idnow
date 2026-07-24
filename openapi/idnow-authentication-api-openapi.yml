@@ -1,0 +1,61 @@
+openapi: 3.0.1
+info:
+  title: IDnow Gateway Authentication API
+  description: Specification of the IDnow identity-verification gateway API. Companies authenticate against the gateway, create and drive identification orders (AutoIdent automated and VideoIdent human-assisted), retrieve results and captured documents, and subscribe to status-change webhooks. Endpoints and payloads documented here are derived from IDnow's public developer documentation; consult the IDnow Developer Hub for the authoritative, complete reference and request/response schemas.
+  termsOfService: https://www.idnow.io/terms-conditions/
+  contact:
+    name: IDnow Support
+    url: https://www.idnow.io/developers/
+  version: '1.0'
+servers:
+- url: https://gateway.idnow.de/api/v1
+  description: Production gateway
+- url: https://gateway.test.idnow.de/api/v1
+  description: Test gateway
+security:
+- LoginToken: []
+tags:
+- name: Authentication
+paths:
+  /{company}/login:
+    post:
+      operationId: login
+      tags:
+      - Authentication
+      summary: Authenticate a company and obtain a login token.
+      description: Authenticates a company using its API key and returns a JSON Web Token (authToken) that must be sent as the X-API-LOGIN-TOKEN header on subsequent requests.
+      parameters:
+      - name: company
+        in: path
+        required: true
+        description: The company identifier issued by IDnow.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                apiKey:
+                  type: string
+                  description: The company API key.
+      responses:
+        '200':
+          description: Authentication succeeded; returns the login token.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  authToken:
+                    type: string
+                    description: JWT to be used as the X-API-LOGIN-TOKEN header.
+components:
+  securitySchemes:
+    LoginToken:
+      type: apiKey
+      in: header
+      name: X-API-LOGIN-TOKEN
+      description: JWT returned by the login endpoint, sent on every authenticated request.
