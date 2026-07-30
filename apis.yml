@@ -7,7 +7,20 @@ description: IDnow is a European identity-verification platform offering automat
   qualified electronic signing (eSign). Its RESTful gateway API lets companies create
   identification orders, drive the verification flow, retrieve results and documents,
   and subscribe to status webhooks.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/idnow.png
 tags:
 - Identity Verification
 - KYC
@@ -18,107 +31,78 @@ created: '2026-06-25'
 modified: '2026-06-25'
 specificationVersion: '0.19'
 apis:
+- aid: idnow:idnow-authentication-api
+  name: IDnow Authentication API
+  description: The Authentication API from IDnow — 1 operation(s) for authentication.
+  humanURL: https://docs-videoident.idnow.io/
+  baseURL: https://gateway.idnow.de/api/v1
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/idnow-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs-videoident.idnow.io/
+  - type: PostmanCollection
+    url: collections/idnow.postman_collection.json
+  - type: OpenCollection
+    url: collections/idnow.opencollection.json
+  - type: Documentation
+    url: https://docs-autoident.idnow.io/
 - aid: idnow:idnow-identifications-api
   name: IDnow Identifications API
+  description: The Identifications API from IDnow — 2 operation(s) for identifications.
+  humanURL: https://docs-videoident.idnow.io/
+  baseURL: https://gateway.idnow.de/api/v1
   tags:
   - Identifications
-  - KYC
-  - Onboarding
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/idnow-identifications-api-openapi.yml
+  - type: Documentation
+    url: https://docs-videoident.idnow.io/
+  - type: PostmanCollection
+    url: collections/idnow.postman_collection.json
+  - type: OpenCollection
+    url: collections/idnow.opencollection.json
+  - type: Documentation
+    url: https://docs-autoident.idnow.io/
+- aid: idnow:idnow-results-api
+  name: IDnow Results API
+  description: The Results API from IDnow — 1 operation(s) for results.
   humanURL: https://docs-videoident.idnow.io/
   baseURL: https://gateway.idnow.de/api/v1
-  properties:
-  - url: https://docs-videoident.idnow.io/
-    type: Documentation
-  - url: openapi/idnow-openapi.yml
-    type: OpenAPI
-  - url: collections/idnow.postman_collection.json
-    type: PostmanCollection
-  - url: collections/idnow.opencollection.json
-    type: OpenCollection
-  description: Create and drive identification orders for a company. Endpoints create
-    an identification for a transaction, start it, and request the video chat step,
-    authenticated with the company login token obtained from the gateway login.
-- aid: idnow:idnow-results-api
-  name: IDnow Results & Retrieval API
   tags:
   - Results
-  - Retrieval
-  - Documents
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs-videoident.idnow.io/
-  baseURL: https://gateway.idnow.de/api/v1
   properties:
-  - url: https://docs-videoident.idnow.io/
-    type: Documentation
-  - url: openapi/idnow-openapi.yml
-    type: OpenAPI
-  - url: collections/idnow.postman_collection.json
-    type: PostmanCollection
-  - url: collections/idnow.opencollection.json
-    type: OpenCollection
-  description: Retrieve the result of a completed identification as JSON and download
-    the captured documents and evidence, optionally including the ID-document and face
-    images once the identification has finished.
-- aid: idnow:idnow-autoident-api
-  name: IDnow AutoIdent API
-  tags:
-  - AutoIdent
-  - Automated KYC
-  - Document Verification
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs-autoident.idnow.io/
-  baseURL: https://gateway.idnow.de/api/v1
-  properties:
-  - url: https://docs-autoident.idnow.io/
-    type: Documentation
-  - url: openapi/idnow-openapi.yml
-    type: OpenAPI
-  - url: collections/idnow.postman_collection.json
-    type: PostmanCollection
-  - url: collections/idnow.opencollection.json
-    type: OpenCollection
-  description: Fully automated digital identity verification that establishes ownership
-    and authenticity of a user's ID document and matches it against a live selfie,
-    created and retrieved through the same gateway identification resources.
+  - type: OpenAPI
+    url: openapi/idnow-results-api-openapi.yml
+  - type: Documentation
+    url: https://docs-videoident.idnow.io/
+  - type: PostmanCollection
+    url: collections/idnow.postman_collection.json
+  - type: OpenCollection
+    url: collections/idnow.opencollection.json
+  - type: Documentation
+    url: https://docs-autoident.idnow.io/
 - aid: idnow:idnow-videoident-api
   name: IDnow VideoIdent API
+  description: The VideoIdent API from IDnow — 1 operation(s) for videoident.
+  humanURL: https://docs-videoident.idnow.io/
+  baseURL: https://gateway.idnow.de/api/v1
   tags:
   - VideoIdent
-  - Video KYC
-  - Ident Specialist
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs-videoident.idnow.io/
-  baseURL: https://gateway.idnow.de/api/v1
   properties:
-  - url: https://docs-videoident.idnow.io/
-    type: Documentation
-  - url: openapi/idnow-openapi.yml
-    type: OpenAPI
-  - url: collections/idnow.postman_collection.json
-    type: PostmanCollection
-  - url: collections/idnow.opencollection.json
-    type: OpenCollection
-  description: Human-assisted identity verification where a user presents a supported
-    ID document over video chat guided by an IDnow Ident Specialist, including a request
-    to enter the video-chat queue for the identification.
-- aid: idnow:idnow-webhooks-api
-  name: IDnow Webhooks
-  tags:
-  - Webhooks
-  - Events
-  - Notifications
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs-videoident.idnow.io/
-  baseURL: https://gateway.idnow.de/api/v1
-  properties:
-  - url: https://docs-videoident.idnow.io/
-    type: Documentation
-  - url: openapi/idnow-openapi.yml
-    type: OpenAPI
-  description: Status-change notifications delivered to a subscriber URL when an identification
-    changes state. Webhooks are delivered by GET by default and support a [statusCode]
-    placeholder in the configured callback URL.
+  - type: OpenAPI
+    url: openapi/idnow-videoident-api-openapi.yml
+  - type: Documentation
+    url: https://docs-videoident.idnow.io/
+  - type: PostmanCollection
+    url: collections/idnow.postman_collection.json
+  - type: OpenCollection
+    url: collections/idnow.opencollection.json
+  - type: Documentation
+    url: https://docs-autoident.idnow.io/
 common:
 - type: AgenticAccess
   url: agentic-access/idnow-agentic-access.yml
