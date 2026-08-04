@@ -1,0 +1,20 @@
+{
+  "provider": "idnow",
+  "sources": [
+    "idnow-authentication-api-openapi.yml",
+    "idnow-identifications-api-openapi.yml",
+    "idnow-results-api-openapi.yml",
+    "idnow-videoident-api-openapi.yml"
+  ],
+  "outputs": [
+    "idnow-authentication-api-openapi.yml",
+    "idnow-identifications-api-openapi.yml",
+    "idnow-results-api-openapi.yml",
+    "idnow-videoident-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
