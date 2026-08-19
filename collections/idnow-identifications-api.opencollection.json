@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IDnow Gateway Authentication Identifications API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-LOGIN-TOKEN",
+      "value": "{{X-API-LOGIN-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Identifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an identification for a transaction.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.idnow.de/api/v1/:company/identifications/:transactionId/create",
+            "params": [
+              {
+                "name": "company",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "path",
+                "description": "Caller-supplied unique transaction reference."
+              }
+            ]
+          },
+          "docs": "Creates an identification resource for the given transaction within the company. Used for both AutoIdent and VideoIdent flows depending on the configured product."
+        },
+        {
+          "info": {
+            "name": "Start a previously created identification.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.idnow.de/api/v1/:company/identifications/:transactionId/start",
+            "params": [
+              {
+                "name": "company",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Start a previously created identification."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

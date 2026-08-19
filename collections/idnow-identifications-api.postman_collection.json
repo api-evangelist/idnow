@@ -1,0 +1,254 @@
+{
+  "item": [
+    {
+      "id": "e5d27a7a-68d4-4329-b4bc-0031f7da5c44",
+      "name": "Identifications",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "316f19fd-60fc-4762-9dc2-734625b5d156",
+          "name": "Create an identification for a transaction.",
+          "request": {
+            "name": "Create an identification for a transaction.",
+            "description": {
+              "content": "Creates an identification resource for the given transaction within the company. Used for both AutoIdent and VideoIdent flows depending on the configured product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":company",
+                "identifications",
+                ":transactionId",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transactionId",
+                  "description": "(Required) Caller-supplied unique transaction reference."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d4314fb-8b84-4fd6-a84e-7bc965845617",
+              "name": "Identification created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":company",
+                    "identifications",
+                    ":transactionId",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transactionId",
+                      "description": "(Required) Caller-supplied unique transaction reference."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-LOGIN-TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0030c6c-aff2-45d0-a3ad-913a206eb0ad",
+          "name": "Start a previously created identification.",
+          "request": {
+            "name": "Start a previously created identification.",
+            "description": {},
+            "url": {
+              "path": [
+                ":company",
+                "identifications",
+                ":transactionId",
+                "start"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transactionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03e1fc32-4b63-4ed1-922e-4aa022f2aa2a",
+              "name": "Identification started.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":company",
+                    "identifications",
+                    ":transactionId",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transactionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-LOGIN-TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.idnow.de/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-LOGIN-TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "756a3351-d3b7-4556-b748-d576db14241f",
+    "name": "IDnow Gateway Authentication Identifications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Specification of the IDnow identity-verification gateway API. Companies authenticate against the gateway, create and drive identification orders (AutoIdent automated and VideoIdent human-assisted), retrieve results and captured documents, and subscribe to status-change webhooks. Endpoints and payloads documented here are derived from IDnow's public developer documentation; consult the IDnow Developer Hub for the authoritative, complete reference and request/response schemas.\n\nContact Support:\n Name: IDnow Support",
+      "type": "text/plain"
+    }
+  }
+}

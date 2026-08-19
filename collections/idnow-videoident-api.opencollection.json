@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IDnow Gateway Authentication VideoIdent API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-LOGIN-TOKEN",
+      "value": "{{X-API-LOGIN-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VideoIdent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request the video-chat step for an identification.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.idnow.de/api/v1/:company/identifications/:transactionId/requestVideoChat",
+            "params": [
+              {
+                "name": "company",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Places the identification into the VideoIdent queue so an IDnow Ident Specialist can guide the user through video verification."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

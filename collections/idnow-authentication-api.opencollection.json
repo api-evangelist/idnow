@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IDnow Gateway Authentication API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-LOGIN-TOKEN",
+      "value": "{{X-API-LOGIN-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authenticate a company and obtain a login token.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gateway.idnow.de/api/v1/:company/login",
+            "params": [
+              {
+                "name": "company",
+                "value": "",
+                "type": "path",
+                "description": "The company identifier issued by IDnow."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticates a company using its API key and returns a JSON Web Token (authToken) that must be sent as the X-API-LOGIN-TOKEN header on subsequent requests."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

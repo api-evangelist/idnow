@@ -1,0 +1,166 @@
+{
+  "item": [
+    {
+      "id": "6fda0477-06e6-4af1-ae9e-3cd0bf479471",
+      "name": "Authentication",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba908766-f969-4d12-9d65-ebe0c9edc4ef",
+          "name": "Authenticate a company and obtain a login token.",
+          "request": {
+            "name": "Authenticate a company and obtain a login token.",
+            "description": {
+              "content": "Authenticates a company using its API key and returns a JSON Web Token (authToken) that must be sent as the X-API-LOGIN-TOKEN header on subsequent requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":company",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company",
+                  "description": "(Required) The company identifier issued by IDnow."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiKey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "55b02ec2-0ddf-4f21-8999-18801d4e3849",
+              "name": "Authentication succeeded; returns the login token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":company",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company",
+                      "description": "(Required) The company identifier issued by IDnow."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-LOGIN-TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"authToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gateway.idnow.de/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-LOGIN-TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d2c73aae-13a1-453d-8017-be7e46e55143",
+    "name": "IDnow Gateway Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Specification of the IDnow identity-verification gateway API. Companies authenticate against the gateway, create and drive identification orders (AutoIdent automated and VideoIdent human-assisted), retrieve results and captured documents, and subscribe to status-change webhooks. Endpoints and payloads documented here are derived from IDnow's public developer documentation; consult the IDnow Developer Hub for the authoritative, complete reference and request/response schemas.\n\nContact Support:\n Name: IDnow Support",
+      "type": "text/plain"
+    }
+  }
+}

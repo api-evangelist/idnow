@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IDnow Gateway Authentication Results API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-LOGIN-TOKEN",
+      "value": "{{X-API-LOGIN-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Results",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve the result of an identification.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gateway.idnow.de/api/v1/:company/identifications/:transactionId",
+            "params": [
+              {
+                "name": "company",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include_documents",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes captured document and face images."
+              }
+            ]
+          },
+          "docs": "Returns the current state and result data for an identification as JSON. Once the identification has finished, the captured ID-document and face images can be requested via the include flag."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
