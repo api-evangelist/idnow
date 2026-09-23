@@ -1,10 +1,7 @@
 {
   "provider": "idnow",
   "sources": [
-    "idnow-authentication-api-openapi.yml",
-    "idnow-identifications-api-openapi.yml",
-    "idnow-results-api-openapi.yml",
-    "idnow-videoident-api-openapi.yml"
+    "_original/idnow-openapi.yml"
   ],
   "outputs": [
     "idnow-authentication-api-openapi.yml",
@@ -15,6 +12,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "idnow-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "idnow-openapi.yml: declared missing tag: Authentication",
+    "idnow-openapi.yml: declared missing tag: Identifications",
+    "idnow-openapi.yml: declared missing tag: Results",
+    "idnow-openapi.yml: declared missing tag: VideoIdent",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "idnow-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "idnow-identifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "idnow-results-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "idnow-videoident-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

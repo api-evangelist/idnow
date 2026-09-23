@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: IDnow Gateway Authentication Results API
+  title: IDnow Gateway Results API
   description: Specification of the IDnow identity-verification gateway API. Companies authenticate against the gateway, create and drive identification orders (AutoIdent automated and VideoIdent human-assisted), retrieve results and captured documents, and subscribe to status-change webhooks. Endpoints and payloads documented here are derived from IDnow's public developer documentation; consult the IDnow Developer Hub for the authoritative, complete reference and request/response schemas.
   termsOfService: https://www.idnow.io/terms-conditions/
   contact:
@@ -22,7 +22,7 @@ paths:
       operationId: getIdentification
       tags:
       - Results
-      summary: Retrieve the result of an identification.
+      summary: Retrieve the result of an identification
       description: Returns the current state and result data for an identification as JSON. Once the identification has finished, the captured ID-document and face images can be requested via the include flag.
       parameters:
       - name: company

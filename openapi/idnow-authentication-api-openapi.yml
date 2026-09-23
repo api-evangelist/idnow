@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: IDnow Gateway Authentication API
   description: Specification of the IDnow identity-verification gateway API. Companies authenticate against the gateway, create and drive identification orders (AutoIdent automated and VideoIdent human-assisted), retrieve results and captured documents, and subscribe to status-change webhooks. Endpoints and payloads documented here are derived from IDnow's public developer documentation; consult the IDnow Developer Hub for the authoritative, complete reference and request/response schemas.
@@ -22,7 +22,7 @@ paths:
       operationId: login
       tags:
       - Authentication
-      summary: Authenticate a company and obtain a login token.
+      summary: Authenticate a company and obtain a login token
       description: Authenticates a company using its API key and returns a JSON Web Token (authToken) that must be sent as the X-API-LOGIN-TOKEN header on subsequent requests.
       parameters:
       - name: company
