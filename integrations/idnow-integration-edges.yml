@@ -1,0 +1,37 @@
+edges:
+- partner_name: EU Trusted List (eIDAS)
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://trustedlist.pts.se/tlv6/SE-TL.xml
+  contract_reference:
+    register: EU List of Trusted Lists (eIDAS qualified trust service providers)
+    spec_file: null
+    role: qualified-trust-service-provider
+    registered_name: IDnow Trust Services AB
+    member_state: SE
+    trusted_list: https://trustedlist.pts.se/tlv6/SE-TL.xml
+    services:
+    - QES-certificates
+    - QSeal-certificates
+    - qualified-attestation
+    - qualified-preservation
+    - qualified-remote-signing-device
+    - qualified-timestamp
+    lotl: https://ec.europa.eu/tools/lotl/eu-lotl.xml
+    matched_domain: trust-services.io
+    detected_by: sweep-legal.py
+    detected: '2026-10-14'
+  source: eutl
+  detected_by: sweep-legal.py
+  first_seen: '2026-10-14'
+generated: '2026-10-14'
+method: searched
+checked:
+- https://ec.europa.eu/tools/lotl/eu-lotl.xml
+- https://trustedlist.pts.se/tlv6/SE-TL.xml
+source:
+- https://trustedlist.pts.se/tlv6/SE-TL.xml
