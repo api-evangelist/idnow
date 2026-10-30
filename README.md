@@ -1,4 +1,4 @@
-# IDnow (idnow)
+# IDnow
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,132 +66,122 @@
 
 IDnow is a European identity-verification platform offering automated (AutoIdent) and human-assisted (VideoIdent) KYC/identity proofing, plus eID and qualified electronic signing (eSign). Its RESTful gateway API lets companies create identification orders, drive the verification flow, retrieve results and documents, and subscribe to status webhooks.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/idnow/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/idnow/refs/heads/main/apis.yml)
+**Areas:** Identity Verification · KYC · Identity Proofing · AML · E-Signature
 
-## Tags
+## IDnow on APIs.io
 
-- Identity Verification
-- KYC
-- Identity Proofing
-- AML
-- eSign
+Everything profiled for IDnow is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/idnow/](https://apis.io/providers/idnow/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-06-25
-- **Modified:** 2026-06-25
+- [IDnow Authentication API](https://apis.io/apis/idnow/idnow-authentication-api/) — The Authentication API from IDnow — 1 operation(s) for authentication.
+- [IDnow Identifications API](https://apis.io/apis/idnow/idnow-identifications-api/) — The Identifications API from IDnow — 2 operation(s) for identifications.
+- [IDnow Results API](https://apis.io/apis/idnow/idnow-results-api/) — The Results API from IDnow — 1 operation(s) for results.
+- [IDnow VideoIdent API](https://apis.io/apis/idnow/idnow-videoident-api/) — The VideoIdent API from IDnow — 1 operation(s) for videoident.
 
-## APIs
+### Published properties
 
-### IDnow Identifications API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Create and drive identification orders for a company. Endpoints create an identification for a transaction, start it, and request the video chat step, authenticated with the company login token obtained from the gateway login.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs-videoident.idnow.io/](https://docs-videoident.idnow.io/)
-- **Base URL:** `https://gateway.idnow.de/api/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Idnow Agentic Access](https://apis.io/agentic-access/idnow/idnow-agentic-access/)
 
-- Identifications
-- KYC
-- Onboarding
+#### Collections (5)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs-videoident.idnow.io/)
-- [OpenAPI](openapi/idnow-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/idnow.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/idnow.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [IDnow Gateway API](https://apis.io/collections/idnow/open-idnow/)
+- [IDnow Gateway Authentication API](https://apis.io/collections/idnow/open-idnow-authentication-api/)
+- [IDnow Gateway Authentication Identifications API](https://apis.io/collections/idnow/open-idnow-identifications-api/)
+- [IDnow Gateway Authentication Results API](https://apis.io/collections/idnow/open-idnow-results-api/)
+- [IDnow Gateway Authentication VideoIdent API](https://apis.io/collections/idnow/open-idnow-videoident-api/)
 
-### IDnow Results & Retrieval API
+#### Security (2)
 
-Retrieve the result of a completed identification as JSON and download the captured documents and evidence, optionally including the ID-document and face images once the identification has finished.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs-videoident.idnow.io/](https://docs-videoident.idnow.io/)
-- **Base URL:** `https://gateway.idnow.de/api/v1`
+- [Idnow Authentication](https://apis.io/security/idnow/idnow-authentication/)
+- [Idnow Domain Security](https://apis.io/security/idnow/idnow-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Results
-- Retrieval
-- Documents
+Published plans, tiers and prices.
 
-#### Properties
+- [Idnow Plans Pricing](https://apis.io/plans/idnow/idnow-plans-pricing/)
 
-- [Documentation](https://docs-videoident.idnow.io/)
-- [OpenAPI](openapi/idnow-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/idnow.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/idnow.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### IDnow AutoIdent API
+Published request limits.
 
-Fully automated digital identity verification that establishes ownership and authenticity of a user's ID document and matches it against a live selfie, created and retrieved through the same gateway identification resources.
+- [Idnow Rate Limits](https://apis.io/rate-limits/idnow/idnow-rate-limits/)
 
-- **Human URL:** [https://docs-autoident.idnow.io/](https://docs-autoident.idnow.io/)
-- **Base URL:** `https://gateway.idnow.de/api/v1`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- AutoIdent
-- Automated KYC
-- Document Verification
+- [Idnow Finops](https://apis.io/finops/idnow/idnow-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs-autoident.idnow.io/)
-- [OpenAPI](openapi/idnow-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/idnow.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/idnow.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### IDnow VideoIdent API
-
-Human-assisted identity verification where a user presents a supported ID document over video chat guided by an IDnow Ident Specialist, including a request to enter the video-chat queue for the identification.
-
-- **Human URL:** [https://docs-videoident.idnow.io/](https://docs-videoident.idnow.io/)
-- **Base URL:** `https://gateway.idnow.de/api/v1`
-
-#### Tags
-
-- VideoIdent
-- Video KYC
-- Ident Specialist
-
-#### Properties
-
-- [Documentation](https://docs-videoident.idnow.io/)
-- [OpenAPI](openapi/idnow-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/idnow.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/idnow.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### IDnow Webhooks
-
-Status-change notifications delivered to a subscriber URL when an identification changes state. Webhooks are delivered by GET by default and support a [statusCode] placeholder in the configured callback URL.
-
-- **Human URL:** [https://docs-videoident.idnow.io/](https://docs-videoident.idnow.io/)
-- **Base URL:** `https://gateway.idnow.de/api/v1`
-
-#### Tags
-
-- Webhooks
-- Events
-- Notifications
-
-#### Properties
-
-- [Documentation](https://docs-videoident.idnow.io/)
-- [OpenAPI](openapi/idnow-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/idnow)
-- [LinkedIn](https://www.linkedin.com/company/idnow)
 - [Website](https://www.idnow.io)
 - [Documentation](https://www.idnow.io/developers/)
-- [Plans](plans/idnow-plans-pricing.yml)
-- [Rate Limits](rate-limits/idnow-rate-limits.yml)
-- [Fin Ops](finops/idnow-finops.yml)
+- [Blog](https://idnow.io/feed/)
+- [GitHub](https://github.com/idnow)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 24.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 46.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 25.0 |
+| Access clarity | 5.3 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/idnow/](https://apis.io/providers/idnow/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for IDnow: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/idnow/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
